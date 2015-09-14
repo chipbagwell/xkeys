@@ -78,21 +78,22 @@ int main(void)
 			res = BlockingReadData(handle, data, 20);
 			if (res == 0) {
 				print_buf(data, 33);
+				fflush(stdout);
 			}
 			else if (res == PIE_HID_READ_INSUFFICIENT_DATA) {
-				printf(".");
-				fflush(stdout);
+//				printf(".");
+//				fflush(stdout);
 			}	
 			else {
 				printf("Error Reading\n");
 			}
 		}
 		
-		printf("Sleeping\n");
+		//printf("Sleeping\n");
 		#if 1
 		if (res != 0) {
-			//usleep(10*1000); // Sleep 10 milliseconds.
-			sleep(2); // 2 seconds
+			usleep(10*1000); // Sleep 10 milliseconds.
+			//sleep(2); // 2 seconds
 		}
 		#endif
 		
